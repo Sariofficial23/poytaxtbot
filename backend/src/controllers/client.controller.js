@@ -22,8 +22,9 @@ const loadBanners = () =>
     return banners.map((b) => ({ ...b, image: publicImage('banner', b.id, b.image) }));
   });
 
+// Блюда без цены (0) скрыты, пока владелец не поставит цену в админке
 export async function getProducts(_req, res) {
-  res.json(await loadProducts());
+  res.json((await loadProducts()).filter((p) => p.newPrice > 0));
 }
 
 export async function getBanners(_req, res) {
@@ -76,7 +77,7 @@ export async function createOrder(req, res) {
   }
   if (!qtyById.size) throw httpError(400, "Savat bo'sh");
 
-  const products = await prisma.product.findMany({ where: { id: { in: [...qtyById.keys()] } } });
+  const products = await prisma.product.findMany({ where: { id: { in: [...qtyById.keys()] }, newPrice: { gt: 0 } } });
   if (!products.length) throw httpError(400, 'Mahsulotlar topilmadi');
 
   const orderItems = products.map((p) => ({

@@ -27,8 +27,8 @@ const ZAVTRAK = 'Завтрак';
 const NA_ZAKAZ = 'На заказ';
 const NAPITKI = 'Напитки';
 
-// Цены — с бумажного меню. Позиции с ценой 0 НЕ попадают в мини-апп
-// (так блюдо не покажется бесплатным).
+// Цены — с бумажного меню. Позиции с ценой 0 заливаются в базу, но в мини-аппе
+// скрыты, пока владелец не поставит цену в админке (Товары → ✏️).
 // Нет цены: Первые блюда, На заказ, Напитки, Норин, Какао, Булочки, Холодец.
 const items = [
   // Первые блюда
@@ -189,16 +189,11 @@ const PHOTOS = {
   'Холодец': 'kholodets.jpg',
 };
 
-export const MENU = items
-  .filter(([, , newPrice]) => newPrice > 0)
-  .map(([category, name, newPrice]) => ({
-    category,
-    name,
-    newPrice,
-    description: '',
-    oldPrice: null,
-    image: PHOTOS[name] ? photoUrl(PHOTOS[name]) : null,
-  }));
-
-// Для проверки: все позиции, включая ещё без цены
-export const ALL_ITEMS = items;
+export const MENU = items.map(([category, name, newPrice]) => ({
+  category,
+  name,
+  newPrice,
+  description: '',
+  oldPrice: null,
+  image: PHOTOS[name] ? photoUrl(PHOTOS[name]) : null,
+}));

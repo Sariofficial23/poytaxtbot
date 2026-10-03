@@ -82,7 +82,11 @@ export default function Products() {
               <div className="muted small">{p.category}</div>
               <b>{p.name}</b>
               <div>
-                {p.oldPrice ? <s className="muted small">{money(p.oldPrice)}</s> : null} <b className="red">{money(p.newPrice)}</b>
+                {p.newPrice > 0 ? (
+                  <>{p.oldPrice ? <s className="muted small">{money(p.oldPrice)}</s> : null} <b className="red">{money(p.newPrice)}</b></>
+                ) : (
+                  <b className="red">Нет цены — скрыто в мини-аппе</b>
+                )}
               </div>
             </div>
             <div className="card-actions">

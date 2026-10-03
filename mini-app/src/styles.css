@@ -1,37 +1,37 @@
 :root {
-  /* «Qum va Oltin» — песок, терракота, золото */
-  --red: #b4532a;          /* основной акцент (терракота) */
-  --red-dark: #8f3f1e;
-  --red-soft: #f6e2d2;
-  --gold: #c99a4e;
-  --gold-soft: #f2d48e;
-  --bg: #f6eee1;
-  --text: #2b1d12;
-  --title: #3a2414;
-  --muted: #8b7560;
-  --card: #fffaf2;
-  --border: #ead9c0;
-  --shadow: 0 8px 22px rgba(120, 70, 20, 0.08), 0 1px 3px rgba(120, 70, 20, 0.06);
+  /* «Tungi Poytaxt» — тёмно-синий как меню, золото, восточный узор */
+  --red: #CFA550;          /* основной акцент (золото): кнопки, цены, активные элементы */
+  --red-dark: #b38a36;
+  --red-soft: rgba(207, 165, 80, 0.16);
+  --gold: #CFA550;
+  --gold-soft: #f1dfb0;
+  --bg: #243f5e;           /* фон — синий как в меню */
+  --text: #f3ead6;
+  --title: #e2bd6b;
+  --muted: #a8b7ca;
+  --card: #2d4c6f;
+  --border: rgba(207, 165, 80, 0.28);
+  --shadow: 0 8px 22px rgba(0, 0, 0, 0.22);
   --radius: 20px;
   --arch: 72px 72px 14px 14px;
-  --green: #2f7d5a;
+  --green: #4caf84;
   --font: Inter, -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
   --display: 'Marcellus', Georgia, serif;
-  --pattern: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56'%3E%3Cpath d='M28 6 L34 22 L50 28 L34 34 L28 50 L22 34 L6 28 L22 22 Z' fill='none' stroke='%23b4532a' stroke-opacity='.09'/%3E%3C/svg%3E");
-  --on-accent: #fff;                         /* текст на кнопках */
-  --accent-glow: rgba(180, 83, 42, 0.28);    /* тень кнопок */
-  --banner-shadow: rgba(120, 60, 20, 0.2);
-  --banner-fade-from: rgba(40, 20, 8, 0.72);
-  --banner-fade-to: rgba(40, 20, 8, 0.05);
-  --tag-text: #5a3210;
-  --placeholder-bg: linear-gradient(160deg, #fffaf2, #f1e3cc);
-  --nav-bg: rgba(255, 250, 242, 0.94);
-  --track: #e6d8c3;
-  --skeleton: linear-gradient(90deg, #efe3d0 25%, #f8efe2 50%, #efe3d0 75%);
-  --input-bg: #fff;
-  --sheet-close-bg: rgba(255, 255, 255, 0.9);
-  --divider: rgba(0, 0, 0, 0.05);
-  color-scheme: light;
+  --pattern: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64'%3E%3Cg fill='none' stroke='%23CFA550' stroke-opacity='.10'%3E%3Cpath d='M32 8 L38 26 L56 32 L38 38 L32 56 L26 38 L8 32 L26 26 Z'/%3E%3Crect x='22' y='22' width='20' height='20' transform='rotate(45 32 32)'/%3E%3C/g%3E%3C/svg%3E");
+  --on-accent: #1d3350;                      /* текст на золотых кнопках */
+  --accent-glow: rgba(207, 165, 80, 0.30);   /* тень кнопок */
+  --banner-shadow: rgba(0, 0, 0, 0.25);
+  --banner-fade-from: rgba(15, 28, 45, 0.82);
+  --banner-fade-to: rgba(15, 28, 45, 0.05);
+  --tag-text: #1d3350;
+  --placeholder-bg: linear-gradient(160deg, #2d4c6f, #22405f);
+  --nav-bg: rgba(29, 51, 80, 0.95);
+  --track: #3b5a7e;
+  --skeleton: linear-gradient(90deg, #2d4c6f 25%, #36577c 50%, #2d4c6f 75%);
+  --input-bg: #1f3a58;
+  --sheet-close-bg: rgba(29, 51, 80, 0.9);
+  --divider: rgba(255, 255, 255, 0.08);
+  color-scheme: dark;
 }
 
 * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
@@ -179,7 +179,7 @@ img { display: block; }
   transform: translateY(100%); transition: transform 0.3s cubic-bezier(0.2, 0.9, 0.3, 1); position: relative; max-height: 90vh; overflow-y: auto;
 }
 .sheet-backdrop.open .sheet { transform: none; }
-.sheet-handle { width: 40px; height: 5px; border-radius: 3px; background: #ddd; margin: 0 auto 12px; }
+.sheet-handle { width: 40px; height: 5px; border-radius: 3px; background: var(--track); margin: 0 auto 12px; }
 .sheet-close { position: absolute; right: 24px; top: 30px; width: 36px; height: 36px; border-radius: 50%; background: var(--sheet-close-bg); display: grid; place-items: center; z-index: 2; box-shadow: var(--shadow); }
 .sheet-img { width: 100%; aspect-ratio: 1.15; border-radius: 120px 120px 22px 22px; margin-bottom: 14px; object-fit: cover; }
 .sheet-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 16px; }
@@ -238,15 +238,15 @@ textarea { resize: none; margin-top: 8px; }
 .avatar { width: 60px; height: 60px; border-radius: 20px; object-fit: cover; background: var(--red-soft); color: var(--red); display: grid; place-items: center; }
 .order .order-items { margin: 8px 0; font-size: 14px; color: var(--muted); }
 .status { display: inline-flex; align-items: center; gap: 4px; font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 999px; }
-.status.pending { background: #fff3e0; color: #e67e00; }
-.status.done { background: #e3efe6; color: var(--green); }
+.status.pending { background: rgba(230, 160, 40, 0.18); color: #f0b54a; }
+.status.done { background: rgba(76, 175, 132, 0.18); color: var(--green); }
 
 /* Onboarding */
 .onboarding { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; padding: 32px 24px; text-align: center; }
 .onb-icon { width: 140px; height: 150px; display: grid; place-items: center; margin-bottom: 12px; background: var(--red); color: var(--gold-soft); border-radius: 80px 80px 28px 28px; box-shadow: 0 20px 40px var(--accent-glow); animation: fade 0.3s ease; }
-.onb-logo { width: 180px; height: 180px; border-radius: 40px; object-fit: cover; margin-bottom: 12px; box-shadow: 0 20px 40px rgba(20, 40, 70, 0.3); animation: fade 0.3s ease; }
+.onb-logo { width: 180px; height: 180px; border-radius: 40px; object-fit: cover; margin-bottom: 12px; border: 2px solid var(--gold); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35); animation: fade 0.3s ease; }
 .dots { display: flex; gap: 6px; margin: 12px 0 20px; }
-.dots span { width: 8px; height: 8px; border-radius: 4px; background: #ddd; transition: all 0.2s; }
+.dots span { width: 8px; height: 8px; border-radius: 4px; background: var(--track); transition: all 0.2s; }
 .dots span.on { width: 24px; background: var(--red); }
 
 /* Skeleton */

@@ -5,12 +5,12 @@ import ImageInput from '../components/ImageInput.jsx';
 import { api, imgSrc } from '../api.js';
 
 const COLORS = {
-  red: 'linear-gradient(135deg,#9e3f1c,#c8643a)',
-  orange: 'linear-gradient(135deg,#c26a2b,#e3a35a)',
-  gold: 'linear-gradient(135deg,#a77a2c,#d9b56a)',
-  pink: 'linear-gradient(135deg,#a8484f,#d98a7f)',
-  dark: 'linear-gradient(135deg,#3a2414,#6b4528)',
-  green: 'linear-gradient(135deg,#2f5d50,#5f8f7c)',
+  red: 'linear-gradient(135deg,#1d3350,#2f5580)',
+  orange: 'linear-gradient(135deg,#8a5a1c,#cfa550)',
+  gold: 'linear-gradient(135deg,#a77a2c,#e2bd6b)',
+  pink: 'linear-gradient(135deg,#6b2f45,#a8566e)',
+  dark: 'linear-gradient(135deg,#0f1c2d,#243f5e)',
+  green: 'linear-gradient(135deg,#1f4d47,#3f7d70)',
 };
 const EMPTY = { title: '', subtitle: '', image: '', emoji: '', price: '', color: 'red', linkType: '', linkValue: '', active: true, sort: 0 };
 
