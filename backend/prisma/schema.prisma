@@ -1,0 +1,74 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id         Int      @id @default(autoincrement())
+  telegramId String   @unique
+  name       String
+  phone      String?
+  createdAt  DateTime @default(now())
+  orders     Order[]
+}
+
+model Product {
+  id          Int      @id @default(autoincrement())
+  image       String?
+  name        String
+  description String   @default("")
+  oldPrice    Int?
+  newPrice    Int
+  category    String
+  createdAt   DateTime @default(now())
+}
+
+model Setting {
+  key   String @id
+  value String
+}
+
+model Promo {
+  id        Int      @id @default(autoincrement())
+  code      String   @unique
+  type      String   @default("percent")
+  value     Int
+  active    Boolean  @default(true)
+  usedCount Int      @default(0)
+  createdAt DateTime @default(now())
+}
+
+model Banner {
+  id        Int      @id @default(autoincrement())
+  title     String
+  subtitle  String?
+  image     String?
+  emoji     String?
+  price     String?
+  color     String?
+  linkType  String?
+  linkValue String?
+  active    Boolean  @default(true)
+  sort      Int      @default(0)
+  createdAt DateTime @default(now())
+}
+
+model Order {
+  id        Int      @id @default(autoincrement())
+  userId    Int
+  user      User     @relation(fields: [userId], references: [id])
+  items     Json
+  total     Int
+  location  String?
+  phone     String?
+  promoCode String?
+  discount  Int      @default(0)
+  status    String   @default("kutilmoqda")
+  courier   String?
+  courierId String?
+  createdAt DateTime @default(now())
+}

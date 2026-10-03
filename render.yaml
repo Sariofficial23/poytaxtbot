@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: dubaikafe-backend
+    runtime: node
+    plan: free
+    region: frankfurt
+    rootDir: backend
+    buildCommand: npm install --include=dev && npx prisma generate
+    startCommand: npm start
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_URL
+        sync: false
+      - key: BOT_TOKEN
+        sync: false
+      - key: ADMIN_PASSWORD
+        sync: false
+      - key: MINI_APP_URL
+        sync: false
+      - key: COURIER_GROUP_ID
+        sync: false
