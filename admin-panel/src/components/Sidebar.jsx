@@ -14,7 +14,7 @@ export default function Sidebar({ page, onChange, collapsed, onToggle, onLogout 
     <aside className={`sidebar ${collapsed ? 'collapsed' : ''}`}>
       <div className="sb-head">
         <button className="icon-btn" onClick={onToggle} aria-label="toggle"><Icon name="menu" /></button>
-        <img src="/logo.jpg" alt="" className="sb-logo" />
+        <img src="/logo-mark.jpg" alt="" className="sb-logo" />
         <span className="sb-brand">Poytaxt</span>
       </div>
       <nav>
