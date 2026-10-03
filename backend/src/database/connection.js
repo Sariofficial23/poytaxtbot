@@ -31,6 +31,10 @@ export async function ensureProductTable() {
       "category" TEXT NOT NULL,
       "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP
     )`);
+  // Стоп-лист: false = блюдо закончилось, скрыто в мини-аппе
+  await prisma.$executeRawUnsafe(
+    `ALTER TABLE "Product" ADD COLUMN IF NOT EXISTS "available" BOOLEAN NOT NULL DEFAULT true`
+  );
 }
 
 export async function ensureSettingsTable() {

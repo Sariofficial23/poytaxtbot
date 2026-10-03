@@ -46,6 +46,7 @@ const productData = (b) => ({
   image: strOrNull(b.image),
   oldPrice: intOrNull(b.oldPrice),
   newPrice: Math.max(0, Math.round(Number(b.newPrice) || 0)),
+  available: b.available !== false,
 });
 
 export const listProducts = async (_req, res) =>

@@ -24,6 +24,7 @@ model Product {
   oldPrice    Int?
   newPrice    Int
   category    String
+  available   Boolean  @default(true) // false = стоп-лист (скрыто в мини-аппе)
   createdAt   DateTime @default(now())
 }
 

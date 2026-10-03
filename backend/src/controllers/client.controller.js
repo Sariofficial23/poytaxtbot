@@ -22,9 +22,9 @@ const loadBanners = () =>
     return banners.map((b) => ({ ...b, image: publicImage('banner', b.id, b.image) }));
   });
 
-// Блюда без цены (0) скрыты, пока владелец не поставит цену в админке
+// Скрыты блюда без цены (0) и блюда в стоп-листе
 export async function getProducts(_req, res) {
-  res.json((await loadProducts()).filter((p) => p.newPrice > 0));
+  res.json((await loadProducts()).filter((p) => p.newPrice > 0 && p.available));
 }
 
 export async function getBanners(_req, res) {
@@ -77,8 +77,13 @@ export async function createOrder(req, res) {
   }
   if (!qtyById.size) throw httpError(400, "Savat bo'sh");
 
-  const products = await prisma.product.findMany({ where: { id: { in: [...qtyById.keys()] }, newPrice: { gt: 0 } } });
-  if (!products.length) throw httpError(400, 'Mahsulotlar topilmadi');
+  const products = await prisma.product.findMany({
+    where: { id: { in: [...qtyById.keys()] }, newPrice: { gt: 0 }, available: true },
+  });
+  // Пока клиент собирал корзину, блюдо могли поставить в стоп-лист
+  if (products.length < qtyById.size) {
+    throw httpError(400, "Savatdagi ba'zi taomlar hozir mavjud emas. Savatni yangilang");
+  }
 
   const orderItems = products.map((p) => ({
     id: p.id,

@@ -146,3 +146,11 @@ tr.overdue td { background: #fff3f4; animation: rowpulse 1.6s infinite; }
 .login-logo { width: 96px; height: 96px; border-radius: 24px; object-fit: cover; box-shadow: 0 10px 24px rgba(20, 40, 70, 0.2); }
 .sb-logo { width: 32px; height: 32px; border-radius: 9px; object-fit: cover; flex-shrink: 0; }
 .sidebar.collapsed .sb-logo { display: none; }
+
+/* Стоп-лист */
+.card.product.stopped .product-img, .card.product.stopped .product-body > b { opacity: 0.45; }
+.stock-toggle { margin-top: 6px; padding: 4px 10px; border-radius: 999px; font-size: 12px; font-weight: 700; align-self: flex-start; }
+.stock-toggle.on { background: #e6f6ee; color: var(--green); }
+.stock-toggle.off { background: #fde8e8; color: #c62828; }
+label.check { display: flex; align-items: center; gap: 8px; font-weight: 600; }
+label.check input { width: auto; }
