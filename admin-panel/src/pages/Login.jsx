@@ -20,8 +20,8 @@ export default function Login({ onSuccess }) {
   return (
     <div className="login">
       <form className="login-card" onSubmit={submit}>
-        <img src="/logo.jpg" alt="Dubai Kafe" className="login-logo" />
-        <h1>Dubai Kafe</h1>
+        <img src="/logo.jpg" alt="Poytaxt" className="login-logo" />
+        <h1>Poytaxt</h1>
         <p className="muted">Панель управления</p>
         <input type="password" autoFocus placeholder="Пароль" value={value} onChange={(e) => setValue(e.target.value)} />
         {error && <div className="error">{error}</div>}

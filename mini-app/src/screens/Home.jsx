@@ -18,10 +18,10 @@ export default function Home({ products, banners, loading, onCategory, onOpen })
   return (
     <div className="screen">
       <header className="home-head">
-        <img src="/logo.jpg" alt="Dubai Kafe" className="logo-img" />
+        <img src="/logo.jpg" alt="Poytaxt" className="logo-img" />
         <div className="grow">
           <div className="muted small">Assalomu alaykum{user?.first_name ? `, ${user.first_name}` : ''}</div>
-          <h1 className="title xl">Dubai Kafe</h1>
+          <h1 className="title xl">Poytaxt</h1>
         </div>
       </header>
 

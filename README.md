@@ -1,4 +1,4 @@
-# Dubai Kafe — бот доставки (@Dubaikafebot)
+# Poytaxt — бот доставки
 
 Telegram-бот + мини-апп + админ-панель для доставки. Монорепозиторий:
 
@@ -47,11 +47,11 @@ cd admin-panel && npm install && npm run dev
 | `NODE_ENV` | `production` |
 | `RENDER_EXTERNAL_URL` | Ставится Render автоматически (keep-alive) |
 
-**mini-app и admin-panel (Vercel):** `VITE_API_URL` — адрес backend, например `https://dubaikafe-backend.onrender.com`.
+**mini-app и admin-panel (Vercel):** `VITE_API_URL` — адрес backend, например `https://poytaxt-backend.onrender.com`.
 
 ## Деплой
 
-1. **Telegram:** @BotFather → `/newbot` (username `Dubaikafebot`) → получите `BOT_TOKEN`. Создайте группу курьеров, добавьте туда бота, отправьте `/id` — это `COURIER_GROUP_ID`.
+1. **Telegram:** @BotFather → `/newbot` (username, например `PoytaxtBot`) → получите `BOT_TOKEN`. Создайте группу курьеров, добавьте туда бота, отправьте `/id` — это `COURIER_GROUP_ID`.
 2. **Neon:** neon.tech → новый проект (регион Frankfurt) → скопируйте Connection string → `DATABASE_URL`.
 3. **Render (backend):** render.com → New → Blueprint → выберите этот репозиторий (`render.yaml` подхватится) → впишите переменные → Deploy. Скопируйте адрес `…onrender.com`.
 4. **Vercel (2 проекта из одного репозитория):**

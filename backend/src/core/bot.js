@@ -30,7 +30,7 @@ export function startBot() {
     }
     const text =
       `Assalomu alaykum, <b>${escapeHtml(msg.from.first_name || '')}</b>! 👋\n\n` +
-      `<b>${config.botName}</b> ga xush kelibsiz ☕️\n` +
+      `<b>${config.botName}</b> ga xush kelibsiz 🍽\n` +
       `Menyuni ochib, buyurtma bering — tez yetkazib beramiz!`;
     const reply_markup = config.miniAppUrl
       ? { inline_keyboard: [[{ text: '🍽 Menyuni ochish', web_app: { url: config.miniAppUrl } }]] }

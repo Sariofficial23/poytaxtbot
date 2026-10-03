@@ -10,7 +10,7 @@ const config = {
   renderExternalUrl: process.env.RENDER_EXTERNAL_URL || '',
   devTelegramId: process.env.DEV_TELEGRAM_ID || '',
   isProduction: process.env.NODE_ENV === 'production',
-  botName: 'Dubai Kafe',
+  botName: 'Poytaxt',
 };
 
 export const DEFAULT_SETTINGS = {
