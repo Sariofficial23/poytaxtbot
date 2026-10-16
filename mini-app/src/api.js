@@ -1,6 +1,7 @@
 import { getInitData } from './telegram.js';
 
-const BASE = (import.meta.env.VITE_API_URL || '').replace(/\/$/, '');
+// trim: в Vercel легко случайно вставить пробел или перенос строки
+const BASE = (import.meta.env.VITE_API_URL || '').trim().replace(/\/+$/, '');
 
 async function request(path, options = {}) {
   const res = await fetch(`${BASE}/api${path}`, {

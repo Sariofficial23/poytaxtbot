@@ -1,4 +1,5 @@
-const BASE = (import.meta.env.VITE_API_URL || '').replace(/\/$/, '');
+// trim: в Vercel легко случайно вставить пробел или перенос строки
+const BASE = (import.meta.env.VITE_API_URL || '').trim().replace(/\/+$/, '');
 
 // Фото меню с сервера приходят как /api/... — добавляем адрес backend
 export const imgSrc = (src) => (src?.startsWith('/api/') ? `${BASE}${src}` : src);
