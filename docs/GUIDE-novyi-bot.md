@@ -208,7 +208,7 @@ const PHOTOS = {
 3. **Application Preset = Vite.**
 
    > ⚠️ Vercel иногда сам ставит **«Services»** и пишет «No detected services» — так проект не соберётся. Выберите **Vite** вручную.
-4. **Environment Variables:** `VITE_API_URL` = адрес Render **без «/» в конце** → **Deploy**.
+4. **Environment Variables:** `VITE_API_URL` = адрес Render **без «/» в конце**, тип **Config** (не Secret — переменные `VITE_` Vercel не даёт сделать секретными) → **Deploy**.
 5. Проверьте ветку: в шапке импорта должна быть `main`. Если там другая — после деплоя **Settings → Git → Production Branch = `main`**.
 6. Повторите для админки (`barakaburger-admin`, папка `admin-panel`).
 
@@ -282,7 +282,9 @@ const PHOTOS = {
 | Первое открытие 20–30 секунд | Сервер просыпался. Проверьте keep-alive в логах и UptimeRobot |
 | Новые фото не появились | После изменения меню в коде дождитесь деплоя Render и нажмите «Обновить меню» (это сбросит ручные правки!) |
 | Пропали цены / стоп-лист | Кто-то нажал «Обновить меню» — оно перезаписывает всё. Внесите цены снова в админке |
-| Render остановил сервис в конце месяца | На одном аккаунте Render два бота. Перенесите второй на аккаунт клиента |
+| Render остановил сервис в середине или конце месяца / мини-апп пишет **«Failed to fetch»** | На одном аккаунте Render несколько ботов — кончились 750 бесплатных часов. Создайте Render на почту кафе, задеплойте туда (Blueprint, те же переменные, тот же `DATABASE_URL` — данные сохранятся), удалите старый сервис, впишите новый адрес в `VITE_API_URL` обоих проектов Vercel → Redeploy, обновите UptimeRobot |
+| Vercel не сохраняет `VITE_API_URL` («Remove the public framework prefix…») | Тип переменной — **Config**, не Secret |
+| «Failed to fetch», хотя Render **Live** | Мини-апп собран со старым адресом: Vercel → Deployments → Redeploy без Build Cache; проверьте, что Production Branch = `main`. Затем полностью закройте мини-апп в Telegram |
 
 ---
 
